@@ -1,7 +1,6 @@
 package co.ryred.red_commons;
 
 import junit.framework.Assert;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.concurrent.TimeUnit;
@@ -11,13 +10,13 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Cory Redmond <ace@ac3-servers.eu>
  */
-public class CooldownTesting {
+public class CooldownTest {
 
     @Test
     public void testGet() throws Exception {
 
-        Cooldown cd = Cooldown.get(CooldownTesting.class, 2, TimeUnit.SECONDS);
-        Cooldown cd1 = Cooldown.get(CooldownTesting.class);
+        Cooldown cd = Cooldown.get(CooldownTest.class, 2, TimeUnit.SECONDS);
+        Cooldown cd1 = Cooldown.get(CooldownTest.class);
         Cooldown cd2 = Cooldown.get(Cooldown.class);
 
         Assert.assertEquals(cd, cd1);
@@ -33,7 +32,7 @@ public class CooldownTesting {
 
         Cooldown.remove( Cooldown.class );
 
-        Cooldown cd = Cooldown.get(CooldownTesting.class, 2, TimeUnit.SECONDS);
+        Cooldown cd = Cooldown.get(CooldownTest.class, 2, TimeUnit.SECONDS);
         String string = "ekkekekekeke";
         cd.addChilling( string );
 

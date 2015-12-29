@@ -9,7 +9,7 @@ import org.junit.Test;
  *
  * @author Cory Redmond <ace@ac3-servers.eu>
  */
-public class StringUtilsTesting {
+public class StringUtilsTest {
 
     @Test( timeout = 5000 )
     public void doGetTimeStringTest() {
