@@ -23,7 +23,7 @@ public class BungeePlugin extends Plugin {
 
     public void saveDefaultConfig( boolean force ) {
         if (!getConfigFile().getParentFile().exists()) {
-            getDataFolder().getParentFile().mkdirs();
+            getConfigFile().getParentFile().mkdirs();
         }
         if (force || !getConfigFile().exists()) {
             try {
