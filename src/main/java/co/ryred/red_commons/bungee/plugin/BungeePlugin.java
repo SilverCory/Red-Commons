@@ -51,6 +51,15 @@ public class BungeePlugin extends Plugin {
         }
     }
 
+    public void saveConfig() {
+        try {
+            ConfigurationProvider.getProvider(YamlConfiguration.class).save(this.config, getConfigFile());
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            getLogger().severe("Couldn\'t save config file!");
+        }
+    }
+
     public File getConfigFile() {
         return new File( getDataFolder(), "config.yml" );
     }
