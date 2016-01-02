@@ -6,7 +6,7 @@
 
     <groupId>co.ryred</groupId>
     <artifactId>Red-Commons</artifactId>
-    <version>1.0</version>
+    <version>1.1</version>
 
     <properties>
         <env.BUILD_NUMBER>[Unknown]</env.BUILD_NUMBER>
