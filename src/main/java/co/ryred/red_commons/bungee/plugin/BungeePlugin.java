@@ -43,6 +43,7 @@ public class BungeePlugin extends Plugin {
 
     public Configuration getConfig()
     {
+		saveDefaultConfig(false);
         try {
             return this.config == null ? ( this.config = ConfigurationProvider.getProvider(YamlConfiguration.class).load( getConfigFile() ) ) : config;
         } catch ( IOException e ) {
