@@ -48,7 +48,7 @@ public class Logs {
 
     @Getter
     @Setter
-    private static boolean globalDebug = true;
+    private static boolean globalDebug = false;
 
     public boolean _D()
     {
