@@ -44,16 +44,20 @@ public class Logs {
 
     @Getter
     @Setter
-    private static boolean debug = true;
+    private boolean debug = true;
 
-    public static boolean _D()
+    @Getter
+    @Setter
+    private static boolean globalDebug = true;
+
+    public boolean _D()
     {
-        return isDebug();
+        return isDebug() || isGlobalDebug();
     }
 
     public void _D( Object... objects )
     {
-        if( !isDebug() ) return;
+        if( !_D() ) return;
 
         StringBuilder sb = new StringBuilder( "[D]" );
 
@@ -61,6 +65,18 @@ public class Logs {
             sb.append( " | " ).append( obj );
 
         log( Level.INFO, sb );
+    }
+
+    public static void globalDebug( Object... objects )
+    {
+        if( !isGlobalDebug() ) return;
+
+        StringBuilder sb = new StringBuilder( "[D]" );
+
+        for ( Object obj : objects )
+            sb.append( " | " ).append( obj );
+
+        Logs.get(Logs.class).log(Level.INFO, sb);
     }
 
     public void info( String string )
