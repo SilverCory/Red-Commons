@@ -17,6 +17,10 @@ public class Logs {
     private static ConcurrentHashMap<Class, Logs> instances = new ConcurrentHashMap<>();
 
     @Getter
+    @Setter
+    private static boolean globalDebug = false;
+
+    @Getter
     private final Logger logger;
 
     public static Logs get( Class owner ) {
@@ -37,6 +41,18 @@ public class Logs {
 
     }
 
+    public static void globalDebug( Object... objects )
+    {
+        if( !isGlobalDebug() ) return;
+
+        StringBuilder sb = new StringBuilder( "[D]" );
+
+        for ( Object obj : objects )
+            sb.append( " | " ).append( obj );
+
+        Logs.get(Logs.class).log(Level.INFO, sb);
+    }
+
     Logs(Logger logger, boolean debug) {
         setDebug( debug );
         this.logger = logger;
@@ -45,10 +61,6 @@ public class Logs {
     @Getter
     @Setter
     private boolean debug = true;
-
-    @Getter
-    @Setter
-    private static boolean globalDebug = false;
 
     public boolean _D()
     {
@@ -65,18 +77,6 @@ public class Logs {
             sb.append( " | " ).append( obj );
 
         log( Level.INFO, sb );
-    }
-
-    public static void globalDebug( Object... objects )
-    {
-        if( !isGlobalDebug() ) return;
-
-        StringBuilder sb = new StringBuilder( "[D]" );
-
-        for ( Object obj : objects )
-            sb.append( " | " ).append( obj );
-
-        Logs.get(Logs.class).log(Level.INFO, sb);
     }
 
     public void info( String string )
