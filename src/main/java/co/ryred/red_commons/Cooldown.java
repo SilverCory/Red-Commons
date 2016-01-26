@@ -131,7 +131,7 @@ public class Cooldown {
     public long getCooldownTime( TimeUnit tu, Object obj )
     {
 
-        if(!cooldownMap.containsKey( obj )) return 100;
+        if(!cooldownMap.containsKey( obj )) return -1;
 
         long time = System.currentTimeMillis();
         long userTime = cooldownMap.get( obj );
