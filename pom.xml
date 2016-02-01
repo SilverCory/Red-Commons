@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>co.ryred</groupId>
-    <artifactId>Red-Commons</artifactId>
+    <artifactId>red-commons</artifactId>
     <version>1.1</version>
 
     <properties>
